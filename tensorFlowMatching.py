@@ -186,7 +186,7 @@ def getSkillsContacts(fieldvalue):
             names.append(contacts["FIRST_NAME"] + f" {contacts['LAST_NAME']}")
     return names
 
-def run():
+def run(file_path):
     # index of industry: [2: industry_set_len], index of skill: [industry_set_len:]
     merge_list, industry_list_len = getMergeList()
 
@@ -194,9 +194,9 @@ def run():
     embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
 
     # get names, industry and descriptions
-    project_name_list = getProjectNames(projectFilePath)[1:]
-    project_industry_list = getProjectIndustry(projectFilePath)[1:]
-    project_description_list = getProjectDesc(projectFilePath)
+    project_name_list = getProjectNames(file_path)[1:]
+    project_industry_list = getProjectIndustry(file_path)[1:]
+    project_description_list = getProjectDesc(file_path)
 
     user_class_list = []
     for i in range(len(project_name_list)):
@@ -214,7 +214,7 @@ if __name__ == "__main__":
     root.withdraw()
 
     projectFilePath = filedialog.askopenfilename(filetypes=[("CSV","*.csv")])
-    project_class_list = run()
+    project_class_list = run(projectFilePath)
     for p in project_class_list:
         print("Project name:", p.get_name())
         print("Matching mentors:", str(p.get_mentor())[1:-1])
