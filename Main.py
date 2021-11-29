@@ -10,8 +10,12 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from AfterMatching import Ui_MainWindow as AfterMatching
+
 
 class Ui_MainWindow(object):
+    filePath = ""
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(745, 523)
@@ -23,14 +27,14 @@ class Ui_MainWindow(object):
         font.setPointSize(33)
         self.label.setFont(font)
         self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(130, 170, 500, 16))
+        self.label_2.setObjectName("label_2")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(380, 320, 211, 81))
+        self.pushButton_2.setGeometry(QtCore.QRect(380, 260, 141, 61))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser.setGeometry(QtCore.QRect(130, 80, 461, 201))
-        self.textBrowser.setObjectName("textBrowser")
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(140, 320, 211, 81))
+        self.pushButton_3.setGeometry(QtCore.QRect(200, 260, 141, 61))
         self.pushButton_3.setObjectName("pushButton_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -42,25 +46,32 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.pushButton_2.clicked.connect(MainWindow.close) # type: ignore
+        # self.pushButton_3.clicked.connect(self.openFileNameDialog)
+        self.pushButton_2.clicked.connect(self.check)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Projects from Qualtrics:"))
-        self.pushButton_2.setText(_translate("MainWindow", "Match"))
-        self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Project 1        Project 6</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Project 2        Project 7</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Project 3</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Project 4</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Project 5    </p></body></html>"))
+        self.pushButton_2.setText(_translate("MainWindow", "Check Projects"))
         self.pushButton_3.setText(_translate("MainWindow", "Upload"))
+        self.label_2.setText(_translate("MainWindow", "Path:"))
 
+    # def openFileNameDialog(self):
+    #     options = QtWidgets.QFileDialog.Options()
+    #     options |= QtWidgets.QFileDialog.DontUseNativeDialog
+    #     fileName, _ = QtWidgets.QFileDialog.getOpenFileName(None, "QFileDialog.getOpenFileName()", "",
+    #                                                         "(*.csv);;Python Files (*.py)", options=options)
+    #     if fileName:
+    #         print("get from dialog:", fileName)
+    #         Ui_MainWindow.filePath = fileName
+    #         print("test:", Ui_MainWindow.filePath)
+    #
+    #     self.label_2.setText("Path: " + Ui_MainWindow.filePath)
+
+    def check(self):
+        print("here")
 
 if __name__ == "__main__":
     import sys
