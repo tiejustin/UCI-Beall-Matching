@@ -17,6 +17,8 @@ pip install "tensorflow>=2.0.0"
 
 pip install --upgrade tensorflow-hub
 
+pip install PyQt5
+
 ################################################################
 
 WARNING
