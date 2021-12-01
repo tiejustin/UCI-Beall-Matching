@@ -214,9 +214,7 @@ if __name__ == "__main__":
     root.withdraw()
 
     projectFilePath = filedialog.askopenfilename(filetypes=[("CSV","*.csv")])
-    print(projectFilePath)
-    print(type(projectFilePath))
-    project_class_list = run(projectFilePath)
-    for p in project_class_list:
-        print("Project name:", p.get_name())
-        print("Matching mentors:", str(p.get_mentor())[1:-1])
+    project_name_list, project_class_list = run(projectFilePath)
+    for i in range(len(project_class_list)):
+        print("Project name:", project_name_list[i])
+        print("Matching mentors:", project_class_list[i])
