@@ -22,8 +22,11 @@ pip install --upgrade tensorflow-hub
 WARNING
 
 CSVs must be formatted in the same way as the example CSVs that were provided by UCI Beall Applied Innovations
+
 If there are any changes to the columns in the CSVs, it could result in the program crashing or not working as intended
 
+
 A Valid API Key must be put into the PATH of the system in the form of a .txt file
+
 
 The results from the Matching are suggestions, and should be used with the user's discretion
