@@ -8,9 +8,13 @@ RUN THESE COMMANDS IN THE TERMINAL ONCE YOU HAVE PYTHON INSTALLED TO GET THE PRO
 ################################################################
 
 python get-pip.py
+
 python -m pip install requests
+
 python -m pip install scipy
+
 pip install "tensorflow>=2.0.0"
+
 pip install --upgrade tensorflow-hub
 
 ################################################################
