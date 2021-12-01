@@ -1,0 +1,2 @@
+Shaka->['Ross Epstein', 'Garrett Brown', 'Kain Sosa']
+Online Open Mic->['Ismael Osuna', 'Jeff Kleid', 'Neil Sahota', 'Shaun Sanders', 'Gina Heitkamp']

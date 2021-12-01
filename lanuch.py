@@ -19,6 +19,7 @@ class MyWindow(Main.Ui_MainWindow, QMainWindow):
         self.pushButton_2.clicked.connect(self.open_btn_clicked)
         self.pushButton_3.clicked.connect(self.openFileNameDialog)
 
+
     def open_btn_clicked(self):
         self.aw = second.AnotherWindowActions()
         self.aw.show()
@@ -31,11 +32,13 @@ class MyWindow(Main.Ui_MainWindow, QMainWindow):
                                                             "(*.csv);;Python Files (*.py)", options=options)
         MyWindow.file = fileName
         MyWindow.filePath = fileName
-        self.aw = second.AnotherWindowActions()
-        self.aw.setfile(MyWindow.file)
-        self.tw = third.AnotherWindowActions()
-        self.tw.setfile(MyWindow.file)
+        #self.aw = second.AnotherWindowActions()
+        #self.aw.setfile(MyWindow.file)
+        #self.tw = third.AnotherWindowActions()
+        #self.tw.setfile(MyWindow.file)
         self.label_2.setText("Path: " + fileName)
+        with open("filename.txt", "w") as f:
+            f.write(fileName)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

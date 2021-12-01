@@ -198,15 +198,15 @@ def run(file_path):
     project_industry_list = getProjectIndustry(file_path)[1:]
     project_description_list = getProjectDesc(file_path)
 
-    user_class_list = []
+    user_mentor_list = []
     for i in range(len(project_name_list)):
         name = project_name_list[i]
         industry = project_industry_list[i]
         description = project_description_list[i]
         user_class = user_attribute.Project(name, industry, description)
         new_user_class = getMentor(user_class, embed, merge_list, industry_list_len)
-        user_class_list.append(new_user_class)
-    return user_class_list
+        user_mentor_list.append(new_user_class.get_mentor())
+    return project_name_list, user_mentor_list
 
 
 if __name__ == "__main__":
@@ -214,6 +214,8 @@ if __name__ == "__main__":
     root.withdraw()
 
     projectFilePath = filedialog.askopenfilename(filetypes=[("CSV","*.csv")])
+    print(projectFilePath)
+    print(type(projectFilePath))
     project_class_list = run(projectFilePath)
     for p in project_class_list:
         print("Project name:", p.get_name())

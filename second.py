@@ -5,6 +5,8 @@ from PyQt5 import QtWidgets
 import lanuch
 import test
 import third
+import tensorFlowMatching
+
 
 class AnotherWindowActions(AfterMatching.Ui_MainWindow, QMainWindow):
 
@@ -13,13 +15,17 @@ class AnotherWindowActions(AfterMatching.Ui_MainWindow, QMainWindow):
         self.setupUi(self)
         self.pushButton.clicked.connect(self.open_btn_clicked)
         self.pushButton_2.clicked.connect(self.open_third)
-        print("?:", AfterMatching.Ui_MainWindow.filePath)
-        # namelist = tensorFlowMatching.getProjectNames(AfterMatching.Ui_MainWindow.filePath)
-        namelist = test.name
+        #print("?:", AfterMatching.Ui_MainWindow.filePath)
+        # namelist = test.name
+        self.filename = ""
+        with open("filename.txt", "r") as f:
+            line1 = f.readline().strip()
+            self.filename = line1
+        name_list = tensorFlowMatching.getProjectNames(self.filename)[1:]
         count = 1
-        for filename in namelist:
+        for name in name_list:
             self.label = QtWidgets.QLabel(self.scrollArea)
-            self.label.setText(filename)
+            self.label.setText(name)
             self.label.move(10, count * 40)
             count += 1
 
