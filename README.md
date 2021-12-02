@@ -35,6 +35,8 @@ The results from the Matching are suggestions, and should be used with the user'
 
 HOW TO USE
 
+Create a .txt file named APIKey.txt with the APIKey for Insightly written in it in one line.
+
 Run the launch.py file to open up the main window
 
 From there, press UPLOAD button to upload a CSV file that has been imported from Qualtrics that has the contents of potential projects
@@ -46,3 +48,13 @@ Press the Start Matching button to generate a .txt file of all the matches as we
 Press Back at any point to return back to the file upload window
 
 Press Exit or the X button to exit the window
+
+#################################################################
+
+ADDING INDUSTRIES AND SKILLSETS
+
+Find the .txt files named skillSets.txt or Industries.txt
+
+Add your skill or industry to the text file with '' surrounding the skill or industry and fitting the format.
+
+Make sure that the industry or skillset that you want to add is spelt the same way in both the Insightly database as well as in the txt files
