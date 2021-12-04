@@ -5,12 +5,13 @@ import requests
 import json
 import user_attribute
 import tensorflow_hub as hub
+import APIKeyFunction
 from scipy.spatial import distance
 
 # Insightly API Key
 pod = 'na1'
-insightlyAPIkey = "2749c36f-192d-423b-ab08-e9b793299427"
 insightlyAPIurl = "https://api.{}.insightly.com/v3.1".format(pod)
+insightlyAPIKey = APIKeyFunction.APIKey()
 eirIndustryField = "CONTACT_FIELD_127"
 eirSkillsField = "CONTACT_FIELD_128"
 
@@ -168,7 +169,7 @@ def getMentor(p, loader, ind_skill_list, industry_len):
 
 def getIndustryContacts(fieldvalue):
     #Calls on the insightly API to get contacts who have the fieldvalue within their EiR Industries
-    r = requests.get(insightlyAPIurl + "/Contacts/Search?" + "field_name=" + eirIndustryField + "&field_value=" + fieldvalue + "&brief=false&count_total=false", auth = (insightlyAPIkey, ''))
+    r = requests.get(insightlyAPIurl + "/Contacts/Search?" + "field_name=" + eirIndustryField + "&field_value=" + fieldvalue + "&brief=false&count_total=false", auth = (insightlyAPIKey.getAPI(), ''))
     insightlyJson = r.json()
     names = []
     for contacts in insightlyJson:
@@ -178,7 +179,7 @@ def getIndustryContacts(fieldvalue):
 
 def getSkillsContacts(fieldvalue):
     #Calls on the insightly API to get contacts who have the fieldvalue within their EiR Skills
-    r = requests.get(insightlyAPIurl + "/Contacts/Search?" + "field_name=" + eirSkillsField + "&field_value=" + fieldvalue + "&brief=false&count_total=false", auth = (insightlyAPIkey, ''))
+    r = requests.get(insightlyAPIurl + "/Contacts/Search?" + "field_name=" + eirSkillsField + "&field_value=" + fieldvalue + "&brief=false&count_total=false", auth = (insightlyAPIKey.getAPI(), ''))
     insightlyJson = r.json()
     names = []
     for contacts in insightlyJson:
@@ -214,7 +215,9 @@ if __name__ == "__main__":
     root.withdraw()
 
     projectFilePath = filedialog.askopenfilename(filetypes=[("CSV","*.csv")])
-    project_name_list, project_class_list = run(projectFilePath)
-    for i in range(len(project_class_list)):
-        print("Project name:", project_name_list[i])
-        print("Matching mentors:", project_class_list[i])
+    print(projectFilePath)
+    print(type(projectFilePath))
+    project_class_list = run(projectFilePath)
+    for p in project_class_list:
+        print("Project name:", p.get_name())
+        print("Matching mentors:", str(p.get_mentor())[1:-1])
