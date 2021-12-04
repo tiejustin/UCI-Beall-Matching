@@ -2,7 +2,7 @@ import sys
 import AfterMatching
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QFileDialog, QMessageBox
 from PyQt5 import QtWidgets
-import lanuch
+import launch
 import test
 import third
 import tensorFlowMatching
@@ -30,7 +30,7 @@ class AnotherWindowActions(AfterMatching.Ui_MainWindow, QMainWindow):
             count += 1
 
     def open_btn_clicked(self):
-        self.aw = lanuch.MyWindow()
+        self.aw = launch.MyWindow()
         self.aw.show()
         self.close()
 

@@ -2,7 +2,7 @@ import sys
 import Matching
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QFileDialog, QMessageBox
 from PyQt5 import QtWidgets
-import lanuch
+import launch
 import test
 import tensorFlowMatching
 import user_attribute
@@ -58,7 +58,7 @@ class AnotherWindowActions(Matching.Ui_MainWindow, QMainWindow):
 
 
     def open_btn_clicked(self):
-        self.aw = lanuch.MyWindow()
+        self.aw = launch.MyWindow()
         self.aw.show()
         self.close()
 
