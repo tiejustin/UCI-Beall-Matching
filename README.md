@@ -21,7 +21,7 @@ pip install PyQt5
 
 ################################################################
 
-###WARNING
+### WARNING
 
 CSVs must be formatted in the same way as the example CSVs that were provided by UCI Beall Applied Innovations
 
@@ -33,7 +33,7 @@ The results from the Matching are suggestions, and should be used with the user'
 
 ################################################################
 
-###HOW TO USE
+### HOW TO USE
 
 Create a .txt file named APIKey.txt with the APIKey for Insightly written in it in one line.
 
@@ -51,7 +51,7 @@ Press Exit or the X button to exit the window
 
 #################################################################
 
-###ADDING INDUSTRIES AND SKILLSETS
+### ADDING INDUSTRIES AND SKILLSETS
 
 Find the .txt files named skillSets.txt or Industries.txt
 
