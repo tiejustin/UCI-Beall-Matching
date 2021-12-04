@@ -49,6 +49,8 @@ Press Back at any point to return back to the file upload window
 
 Press Exit or the X button to exit the window
 
+There is a result.txt file that will be produced that will have the entire matches
+
 #################################################################
 
 ### ADDING INDUSTRIES AND SKILLSETS
